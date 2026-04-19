@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 900: '#0B1F3A', 800: '#102949', 700: '#173561' },
+          },
+          fontFamily: {
+            display: ['Sora', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    * { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .nav-scrolled { box-shadow: 0 2px 24px rgba(11,31,58,0.18); }
+    .cta-pulse { animation: cta-pulse 2.5s ease-in-out infinite; }
+    @keyframes cta-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(204,20,23,0.5); }
+      50% { box-shadow: 0 0 0 12px rgba(204,20,23,0); }
+    }
+    #mobile-menu { transition: max-height 0.35s ease, opacity 0.3s ease; max-height: 0; opacity: 0; overflow: hidden; }
+    #mobile-menu.open { max-height: 400px; opacity: 1; }
+    .fade-up { opacity: 1; transform: none; }
+    .js-ready .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .js-ready .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .js-ready .fade-up.delay-1 { transition-delay: 0.1s; }
+    .js-ready .fade-up.delay-2 { transition-delay: 0.2s; }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: #CC1417 !important; box-shadow: 0 0 0 3px rgba(204,20,23,0.15); }
+  </style>
+  <title>About Us | St Margarets Plumber</title>
+</head>
+<body class="bg-white text-gray-800">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="/"><img src="/logo-removebg-preview.png" alt="St Margarets Plumber" class="h-10 w-auto object-contain" /></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/services.html" class="text-sm font-medium text-gray-600 hover:text-[#CC1417] transition-colors">Services</a>
+        <a href="/about.html" class="text-sm font-medium text-gray-600 hover:text-[#CC1417] transition-colors">Why Us</a>
+        <a href="/contact.html" class="text-sm font-medium text-gray-600 hover:text-[#CC1417] transition-colors">Contact</a>
+        <a href="tel:02088915117" class="cta-pulse bg-[#CC1417] text-white font-display font-700 text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 hover:bg-red-700 transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"></path></svg>
+          Call Now
+        </a>
+      </div>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+        <svg id="menu-icon-open" class="w-5 h-5 text-[#0B1F3A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="menu-icon-close" class="w-5 h-5 text-[#0B1F3A] hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu">
+      <div class="pb-4 space-y-1 border-t border-gray-100 pt-3">
+        <a href="/services.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Services</a>
+        <a href="/about.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Why Us</a>
+        <a href="/contact.html" class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Contact</a>
+        <a href="tel:02088915117" class="flex items-center gap-2 bg-[#CC1417] text-white font-display font-700 px-4 py-3 rounded-xl mt-2 hover:bg-red-700 transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"></path></svg>
+          Call Now — 02088915117
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="bg-[#0B1F3A] pt-28 pb-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <p class="text-[#CC1417] font-medium text-sm mb-2 uppercase tracking-wider">Who We Are</p>
+    <h1 class="font-display font-800 text-white text-4xl sm:text-5xl mb-4">About Us</h1>
+    <p class="text-blue-200 text-lg max-w-xl mx-auto">St Margarets Plumber — your trusted local plumber for over 20 years.</p>
+  </div>
+</div>
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+      <div class="fade-up">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=500&fit=crop" alt="Igor - St Margarets Plumber" class="rounded-3xl w-full object-cover shadow-2xl" style="max-height:400px"/>
+      </div>
+      <div class="fade-up delay-1">
+        <h2 class="font-display font-800 text-[#0B1F3A] text-3xl mb-4">We are committed to professional services!</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">St Margarets Plumber is your trusted local plumber for all plumbing, heating, and refurbishment needs in kitchens, bathrooms, and wetrooms. We provide reliable solutions for your home and business needs.</p>
+        <p class="text-gray-600 leading-relaxed mb-6">With 20+ years of experience, we've built our reputation on honesty, quality workmanship and being there when our customers need us most — including 24/7 emergency cover.</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gray-50 rounded-2xl p-4 text-center">
+            <div class="font-display font-800 text-[#CC1417] text-3xl mb-1">20+</div>
+            <div class="text-gray-600 text-sm">Years Experience</div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-4 text-center">
+            <div class="font-display font-800 text-[#CC1417] text-3xl mb-1">88</div>
+            <div class="text-gray-600 text-sm">Google Reviews</div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-4 text-center">
+            <div class="font-display font-800 text-[#CC1417] text-3xl mb-1">24/7</div>
+            <div class="text-gray-600 text-sm">Emergency Service</div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-4 text-center">
+            <div class="font-display font-800 text-[#CC1417] text-3xl mb-1">★5.0</div>
+            <div class="text-gray-600 text-sm">Google Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      <div class="text-center fade-up">
+        <div class="w-16 h-16 bg-[#0B1F3A] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+          <svg class="w-8 h-8 text-[#CC1417]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="font-display font-700 text-[#0B1F3A] text-xl mb-3">Truly Local</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Based in St Margarets, TW1. We know the area and our neighbours — faster response and a plumber who genuinely cares.</p>
+      </div>
+      <div class="text-center fade-up delay-1">
+        <div class="w-16 h-16 bg-[#0B1F3A] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+          <svg class="w-8 h-8 text-[#CC1417]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-display font-700 text-[#0B1F3A] text-xl mb-3">Gas Safe Certified</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Gas Safe Registered and fully insured. Every job meets British Standards — we never cut corners on quality or safety.</p>
+      </div>
+      <div class="text-center fade-up delay-2">
+        <div class="w-16 h-16 bg-[#0B1F3A] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
+          <svg class="w-8 h-8 text-[#CC1417]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="font-display font-700 text-[#0B1F3A] text-xl mb-3">24/7 Available</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Plumbing emergencies don't keep office hours. Neither do we. Call any time — days, evenings, weekends, bank holidays.</p>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div id="reviews" class="mb-4">
+      <h2 class="font-display font-800 text-[#0B1F3A] text-3xl text-center mb-10">What Our Customers Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <div class="bg-gray-50 rounded-2xl p-6 fade-up fade-up">
+    <div class="flex justify-between mb-3"><div class="flex gap-1 text-[#CC1417]"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="text-xs text-gray-400">Google</span></div>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">"Igor came within an hour of my call to fix a leaking stop cock. Found him to be very friendly and polite — my tenant was impressed by his professionalism. First time user, will definitely use again."</p>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-[#0B1F3A] flex items-center justify-center text-white font-bold text-sm">C</div><div><div class="font-medium text-sm">Caroline</div><div class="text-gray-400 text-xs">2 months ago</div></div></div>
+  </div>
+
+  <div class="bg-gray-50 rounded-2xl p-6 fade-up fade-up delay-1">
+    <div class="flex justify-between mb-3"><div class="flex gap-1 text-[#CC1417]"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="text-xs text-gray-400">Google</span></div>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">"Igor is a true professional, always very cautious and respectable on the job. Very trustworthy tradesman, can't recommend him enough."</p>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-[#CC1417] flex items-center justify-center text-white font-bold text-sm">C</div><div><div class="font-medium text-sm">Cesar Christoforidis</div><div class="text-gray-400 text-xs">2 months ago</div></div></div>
+  </div>
+
+  <div class="bg-gray-50 rounded-2xl p-6 fade-up fade-up delay-2">
+    <div class="flex justify-between mb-3"><div class="flex gap-1 text-[#CC1417]"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="text-xs text-gray-400">Google</span></div>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">"Igor was here in just 15 minutes after we called about a burst water pipe. Very friendly and professional. He'll be the first person we call when we need any work done in the future."</p>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">J</div><div><div class="font-medium text-sm">Joanna Lawton</div><div class="text-gray-400 text-xs">5 years ago</div></div></div>
+  </div>
+
+  <div class="bg-gray-50 rounded-2xl p-6 fade-up fade-up">
+    <div class="flex justify-between mb-3"><div class="flex gap-1 text-[#CC1417]"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="text-xs text-gray-400">Google</span></div>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">"Low pressure issue solved quickly through local knowledge of the system. Previous plumber misdiagnosed and was recommending large building works. Good communication and excellent value."</p>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-sm">S</div><div><div class="font-medium text-sm">Stephen Somanader</div><div class="text-gray-400 text-xs">6 months ago</div></div></div>
+  </div>
+
+  <div class="bg-gray-50 rounded-2xl p-6 fade-up fade-up delay-1">
+    <div class="flex justify-between mb-3"><div class="flex gap-1 text-[#CC1417]"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="text-xs text-gray-400">Google</span></div>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">"A breath of fresh air from Igor — a highly skilled man with such a broad range of skills and decades of experience. Job done to perfection."</p>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm">M</div><div><div class="font-medium text-sm">MAGNUS FORSTER-BROWN</div><div class="text-gray-400 text-xs">4 months ago</div></div></div>
+  </div>
+
+  <div class="bg-gray-50 rounded-2xl p-6 fade-up fade-up delay-2">
+    <div class="flex justify-between mb-3"><div class="flex gap-1 text-[#CC1417]"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="text-xs text-gray-400">Google</span></div>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">"Had some boiler issues and he went above and beyond to find the best outcome for me, even though it meant less work for him. Really appreciate the effort — thank you again!"</p>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-orange-600 flex items-center justify-center text-white font-bold text-sm">S</div><div><div class="font-medium text-sm">Scott McGregor</div><div class="text-gray-400 text-xs">6 months ago</div></div></div>
+  </div>
+
+  <div class="bg-[#0B1F3A] rounded-2xl p-6 fade-up flex flex-col justify-between">
+    <div>
+      <div class="flex gap-1 text-yellow-400 mb-3"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="font-display font-800 text-white text-4xl mb-1">88</div>
+      <div class="text-blue-200 text-sm mb-3">Five-star Google reviews</div>
+      <p class="text-blue-300 text-sm leading-relaxed">Trusted by hundreds of homeowners and landlords across St Margarets, Twickenham and the TW1 &amp; TW2 area.</p>
+    </div>
+    <a href="https://g.page/r/stmargaretsplumber/review" target="_blank" class="mt-6 inline-flex items-center justify-center gap-2 bg-[#CC1417] text-white text-sm font-medium px-4 py-3 rounded-xl hover:bg-red-700 transition-colors">
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Leave a Google Review
+    </a>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+<section class="py-16 bg-[#CC1417]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="font-display font-800 text-white text-3xl sm:text-4xl mb-3">Need a Plumber Right Now?</h2>
+    <p class="text-red-100 text-lg mb-8">Call us directly — we pick up day and night, including emergencies.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="tel:02088915117" class="bg-white text-[#CC1417] font-display font-800 text-2xl px-12 py-5 rounded-xl hover:bg-red-50 transition-colors inline-flex items-center justify-center gap-3 shadow-lg">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"></path></svg>
+        02088915117
+      </a>
+      <a href="/contact.html" class="text-red-100 text-sm font-medium underline underline-offset-4 hover:text-white transition-colors">or send a message instead</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-[#0B1F3A] pt-12 pb-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+      <div class="max-w-xs">
+        <div class="mb-3"><img src="/logo-removebg-preview.png" alt="St Margarets Plumber" class="h-12 w-auto object-contain" /></div>
+        <p class="text-blue-200 text-sm leading-relaxed">Local, trusted plumber serving St Margarets &amp; Twickenham. Gas Safe registered, fully insured, emergency service 24/7.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm">
+        <div>
+          <div class="text-[#CC1417] font-display font-600 text-xs uppercase tracking-wider mb-3">Services</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/services.html#emergency" class="hover:text-white transition-colors">Emergency Plumber</a></li>
+            <li><a href="/services.html#leak" class="hover:text-white transition-colors">Leak Detection</a></li>
+            <li><a href="/services.html#taps" class="hover:text-white transition-colors">Kitchen Taps</a></li>
+            <li><a href="/services.html#shower" class="hover:text-white transition-colors">Shower Repair</a></li>
+            <li><a href="/services.html#bathroom" class="hover:text-white transition-colors">Bathroom Refurb</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-[#CC1417] font-display font-600 text-xs uppercase tracking-wider mb-3">Company</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/about.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/about.html#reviews" class="hover:text-white transition-colors">Reviews</a></li>
+            <li><a href="/contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-[#CC1417] font-display font-600 text-xs uppercase tracking-wider mb-3">Contact</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="tel:02088915117" class="hover:text-white transition-colors">02088915117</a></li>
+            <li><a href="tel:07856617380" class="hover:text-white transition-colors">07856617380</a></li>
+            <li><a href="mailto:info@stmargaretsplumber.com" class="hover:text-white transition-colors">info@stmargaretsplumber.com</a></li>
+            <li class="text-gray-400 text-xs">48 Chertsey Road, TW1 1JQ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-gray-400 text-xs">&copy; 2026 St Margarets Plumber. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-1.5 text-gray-300 text-xs">
+          <svg class="w-3.5 h-3.5 text-[#CC1417]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Gas Safe Registered
+        </div>
+        <div class="flex items-center gap-1.5 text-gray-300 text-xs">
+          <svg class="w-3.5 h-3.5 text-[#CC1417]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Fully Insured
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // animations disabled for reliability
+    document.querySelectorAll('.hero-section .fade-up').forEach(el => el.classList.add('visible'));
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('nav-scrolled', window.scrollY > 10));
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    let menuOpen = false;
+    toggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      menu.classList.toggle('open', menuOpen);
+      iconOpen.classList.toggle('hidden', menuOpen);
+      iconClose.classList.toggle('hidden', !menuOpen);
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menuOpen = false; menu.classList.remove('open');
+      iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden');
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => { if (!el.closest('.hero-section')) observer.observe(el); });
+  });
+  function handleSubmit(e) {
+    e.preventDefault();
+    const s = document.getElementById('form-success');
+    if(s) { s.classList.remove('hidden'); e.target.reset(); setTimeout(() => s.classList.add('hidden'), 5000); }
+  }
+</script>
+</body>
+</html>
